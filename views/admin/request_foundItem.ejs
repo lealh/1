@@ -1,0 +1,41 @@
+<%- include('../_layouts/adminheader'); -%>
+
+
+<div class="section-text-center button-container">
+    <h1 class="section-text-center">Request Found Item</h1>
+    <a href="/admin/foundItems" class="button">Back to all Found Items</a>
+</div>
+
+<div class="container">
+    <form method="post" action="/admin/foundItems/request_foundItem/<%= id %>" enctype="multipart/form-data">
+            <h2>Found Item Name:</h2><label for=""><%-title-%></label>
+            <h2>Item Description:</h2><label><%-description-%></label>    
+            <h2>Category:</h2><label><%-category-%></label>    
+            <h2>Color:</h2><label><%-color-%></label>    
+            <h2>Location found:</h2><label><%-place-%></label>    
+            <h2>Date:</h2><label><%-date-%></label>    
+
+            <div class="form-group">
+                <label for="">Your Name:</label>
+                <input type="text" class="form-control" name="name" value="<%-name-%>" placeholder="Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Email:</label>
+                <input type="email" class="form-control" name="email" value="<%-title-%>" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label for="">Email:</label>
+                <h2>Product ID:</h2><label><%-id-%></label>    
+                <input type="hidden" class="form-control" name="id" value="<%-id-%>" placeholder="id">
+            </div>
+
+        <div class="section-text-center button-container">
+            <button class="button">Submit Request</button>
+        </div>
+
+    </form>
+</div>
+
+<%- include('../_layouts/adminfooter'); -%>

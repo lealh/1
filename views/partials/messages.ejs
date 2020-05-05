@@ -1,0 +1,19 @@
+<% if(typeof errors != 'undefined') { %>
+ <% errors.forEach(function(error) { %>
+   <div class="incorrect-details">
+      <%- error.msg %>
+  </div>
+ <% });%>
+<% } %>
+
+<% if(success_msg != '') { %>
+     <div class="incorrect-details">
+        <p>Well Done!</p>
+    </div>
+<% });%>
+
+<% if(error != '') { %>
+   <div class="incorrect-details">
+      <%- error_msg %>
+  </div>
+<% }); %>

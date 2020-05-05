@@ -1,0 +1,46 @@
+<%- include('../_layouts/adminheader.ejs') -%>
+
+<h1 class="section-text-center">Found Items</h1>
+
+<div class="section-text-center button-container">
+    <a href="/admin/foundItems/add_foundItem" class="button">Add a new found item</a>
+</div>
+<% if (count > 0) { %>
+<div class="container">
+    <table id="pages">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Color</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% foundItems.forEach(function(foundItems) { %>
+                <tr>
+                    <td><%= foundItems.title %></td>
+                    <td><%= foundItems.category %></td>
+                    <td><%= foundItems.description %></td>
+                    <td><%= foundItems.color %></td>
+                    <td><%= foundItems.place %></td>
+                    <td><%= foundItems.date %></td>
+                    <td>
+                        <img src="/foundItems_images/<%= foundItems._id %>/<%= foundItems.image %>">
+                    </td>
+                    <td><a href="/admin/foundItems/edit_foundItem/<%= foundItems._id %>">Edit</a></td>
+                    <td><a class="confirmDeletion" href="/admin/foundItems/delete_foundItem/<%= foundItems._id %>">Delete</a></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<% } else {%>
+    <p class="section-text-center"> There are no products</p>
+<% } %>    
+<%- include('../_layouts/adminfooter.ejs') -%>

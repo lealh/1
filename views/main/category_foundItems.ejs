@@ -1,0 +1,54 @@
+<%- include('../_layouts/header.ejs'); -%>
+
+    <div class="featured-items-section">
+        <div class="container">
+            <h1 class="section-text-center">Find-the-Lost</h1>
+
+            <p class="section-description section-text-center">Everyday, hundreds and thousands of valuable items are lost from home, trains, and airports etc.
+                Many of those lost items are never returned to their owners because it is just very difficult to link a lost
+                item to the owner. Check our system to see whether you lost item has been found!
+                
+            </p>
+            <br>
+            <br>
+            <%- messages('messages', locals) %>
+            <div class="vertical-menu">
+                <li><a href="/foundItems" class="active">Categories</a></li>
+                <% categories.forEach(function(d) { %>
+                <li><a href="/foundItems/<%= d.slug %>"><%= d.title %></a></li>
+                <% }); %>
+            </div>
+
+                <table id="pages">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Color</th>
+                            <th>Place</th>
+                            <th>Date</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% foundItems.forEach(function(foundItems) { %>
+                            <tr>
+                                <td><%= foundItems.title %></td>
+                                <td><%= foundItems.category %></td>
+                                <td><%= foundItems.description %></td>
+                                <td><a href="<%= foundItems._id %>"><%= foundItems.color %></a></td>
+                                <td><%= foundItems.place %></td>
+                                <td><%= foundItems.date %></td>
+                                <td>
+                                    <img src="/foundItems_images/<%= foundItems._id %>/<%= foundItems.image %>">
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+        </div>    
+    </div>
+    <div class="container"></div>
+
+<%- include('../_layouts/footer.ejs'); -%>

@@ -1,0 +1,43 @@
+<%- include('./_layouts/indexheader'); -%>
+
+<div class="section-text-center button-container">
+    <h1 class="section-text-center">Login</h1>
+</div>
+
+<div class="container">
+    <div class="section-text-center">
+    <form method="post" action="/users/login">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                class="form-control" 
+                name="email" 
+                placeholder="Enter Email Address"
+                value="<%= typeof email != 'undefined' ? email : ''%>"
+            />    
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                name="password" 
+                placeholder="Create a password"
+                value="<%= typeof email != 'undefined' ? password : ''%>"
+            />    
+        </div>
+
+        <div class="section-text-center button-container">
+            <button class="button">Login</button>
+        </div>
+    </form>
+    <div class="section-text-center">
+        <p>Not Registered?<a href="/users/login">Login</a></p>
+    </div>
+    </div>
+</div>
+
+
+<%- include('./_layouts/footer'); -%>

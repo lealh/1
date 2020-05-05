@@ -1,0 +1,27 @@
+<html>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<header>
+    <div class="nav container">
+        <div class="logo">FiLo</div>
+        <ul>
+            <li><a href="/admin/foundItems"><h3>Items</h3></a></li>
+            <li><a href="/users/login"><h3>Login</h3></a></li>
+            <li><a href="/users/register"><h3>Register</h3></a></li>
+        </ul>
+    </div> <!-- end top-nav -->
+</header>
+<body>
+    
+<div class="featured-items-section">
+    <div class="container"> 
+        <%- messages('messages', locals) -%>
+
+        <% if (locals.errors) { %>  
+            <% errors.forEach(function(error) { %>
+                <div class="incorrect-details">
+                    <%- error.msg %>
+                </div>
+            <% }); %>
+        <% } %>
